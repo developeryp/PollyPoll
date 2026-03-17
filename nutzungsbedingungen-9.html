@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polly – Nutzungsbedingungen / Terms of Use</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e12;
+    --surface: #16161e;
+    --surface2: #1e1e28;
+    --border: rgba(255,255,255,0.07);
+    --accent: #7c5cfc;
+    --accent2: #a78bfa;
+    --accent-glow: rgba(124,92,252,0.18);
+    --text: #f0eff8;
+    --text-muted: #8b8a9e;
+    --text-subtle: #55546a;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.72;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(14,14,18,0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(16px, 5vw, 60px);
+  }
+  .header-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 16px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon { font-size: 26px; filter: drop-shadow(0 0 10px rgba(124,92,252,0.5)); }
+  .logo-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--text); letter-spacing: -0.3px;
+  }
+
+  /* Lang Switch */
+  .lang-switch {
+    display: flex; align-items: center;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50px; padding: 3px; gap: 2px;
+  }
+  .lang-btn {
+    padding: 5px 14px; border: none; cursor: pointer;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    transition: all 0.2s ease;
+    color: var(--text-muted); background: transparent;
+  }
+  .lang-btn.active {
+    background: var(--accent); color: #fff;
+    box-shadow: 0 2px 12px rgba(124,92,252,0.4);
+  }
+
+  /* ── Main ── */
+  main {
+    position: relative; z-index: 1;
+    padding: 0 clamp(16px, 5vw, 60px) 80px;
+  }
+  .doc-content { max-width: 860px; margin: 0 auto; padding-top: 52px; }
+
+  /* Hero */
+  .doc-hero { margin-bottom: 52px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+  .doc-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(124,92,252,0.3);
+    border-radius: 50px;
+    font-size: 12px; font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .doc-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.12; color: var(--text);
+    margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .doc-meta {
+    font-size: 13.5px; color: var(--text-subtle);
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px; margin-bottom: 48px;
+  }
+  .toc-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--text-subtle); margin-bottom: 14px;
+  }
+  .toc ol {
+    list-style: none; counter-reset: toc;
+    display: grid; gap: 6px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .toc ol li { counter-increment: toc; }
+  .toc ol li a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13.5px;
+    display: flex; align-items: baseline; gap: 8px;
+    transition: color 0.15s;
+  }
+  .toc ol li a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 11px; color: var(--accent2);
+    font-weight: 600; min-width: 22px;
+  }
+  .toc ol li a:hover { color: var(--text); }
+
+  /* Sections */
+  .legal-section {
+    margin-bottom: 48px;
+    scroll-margin-top: 90px;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .legal-section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-size: 11px; font-weight: 700;
+    color: var(--accent2); letter-spacing: 1px;
+    text-transform: uppercase; min-width: 28px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; color: var(--text); letter-spacing: -0.2px;
+  }
+  .section-body { padding-left: 40px; }
+
+  p { margin-bottom: 14px; color: var(--text-muted); }
+  p:last-child { margin-bottom: 0; }
+
+  h4 {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    margin: 22px 0 10px; letter-spacing: 0.1px;
+  }
+
+  ul, ol.list {
+    padding-left: 20px; margin-bottom: 14px;
+    color: var(--text-muted); display: grid; gap: 6px;
+  }
+  li { padding-left: 4px; }
+
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .box {
+    border-radius: var(--radius-sm);
+    padding: 16px 18px; margin: 18px 0;
+    border-left: 3px solid; font-size: 14px;
+  }
+  .box-info { background: rgba(124,92,252,0.08); border-color: var(--accent); color: var(--text-muted); }
+  .box-warn { background: rgba(251,191,36,0.07); border-color: #fbbf24; color: var(--text-muted); }
+  .box strong { color: var(--text); }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 16px;
+  }
+  .contact-row { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .contact-icon { font-size: 18px; width: 28px; text-align: center; }
+  .contact-label { color: var(--text-subtle); font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .contact-value { color: var(--text); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 28px clamp(16px, 5vw, 60px);
+    text-align: center;
+  }
+  footer p { font-size: 12.5px; color: var(--text-subtle); margin: 0; }
+
+  /* Hidden lang blocks */
+  .en { display: none; }
+
+  @media (max-width: 600px) {
+    .toc ol { grid-template-columns: 1fr; }
+    .section-body { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="logo-icon">🗳️</span>
+      <span class="logo-name">Polly</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('de')" id="btn-de">Deutsch</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="doc-content">
+
+<!-- ══════════════════════════════════════════
+     DEUTSCH
+══════════════════════════════════════════ -->
+<div class="de">
+
+  <div class="doc-hero">
+    <div class="doc-badge">📋 Rechtsdokument</div>
+    <h1 class="doc-title">Nutzungsbedingungen</h1>
+    <div class="doc-meta">
+      <span>🗳️ Polly App</span>
+      <span>📅 Stand: 17. März 2025</span>
+      <span>📱 iOS-Anwendung</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Inhaltsverzeichnis</div>
+    <ol>
+      <li><a href="#de-geltung">Geltungsbereich &amp; Anbieter</a></li>
+      <li><a href="#de-leistung">Leistungsbeschreibung</a></li>
+      <li><a href="#de-registrierung">Registrierung &amp; Konto</a></li>
+      <li><a href="#de-pflichten">Nutzerpflichten</a></li>
+      <li><a href="#de-inhalte">Nutzergenerierte Inhalte</a></li>
+      <li><a href="#de-ip">Geistiges Eigentum</a></li>
+      <li><a href="#de-haftung">Haftung</a></li>
+      <li><a href="#de-kuendigung">Kündigung &amp; Sperrung</a></li>
+      <li><a href="#de-aenderungen">Änderungen der Bedingungen</a></li>
+      <li><a href="#de-sonstiges">Sonstiges &amp; Anwendbares Recht</a></li>
+    </ol>
+  </div>
+
+  <div class="box box-info">
+    <strong>Hinweis:</strong> Diese Nutzungsbedingungen gelten für die Nutzung der mobilen iOS-Applikation <strong>Polly</strong>. Bitte lese sie sorgfältig durch, bevor du die App verwendest. Mit der Nutzung der App stimmst du diesen Bedingungen zu.
+  </div>
+
+  <!-- §1 -->
+  <div class="legal-section" id="de-geltung">
+    <div class="section-header">
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">Geltungsbereich &amp; Anbieter</h2>
+    </div>
+    <div class="section-body">
+      <p>Diese Nutzungsbedingungen (im Folgenden „Bedingungen") regeln die Nutzung der iOS-Applikation <strong>Polly</strong> (im Folgenden „App" oder „Dienst"), betrieben von:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Anbieter</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">E-Mail</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">🏠</span><div><div class="contact-label">Postanschrift</div><div class="contact-value">Die vollständige Postadresse wird auf Anfrage per E-Mail mitgeteilt.</div></div></div>
+      </div>
+      <p style="margin-top:16px">Die App richtet sich ausschließlich an die private, nicht-kommerzielle Nutzung. Die Nutzung durch Personen unter 13 Jahren ist nicht gestattet. Personen zwischen 13 und 16 Jahren benötigen die Einwilligung eines Erziehungsberechtigten.</p>
+    </div>
+  </div>
+
+  <!-- §2 -->
+  <div class="legal-section" id="de-leistung">
+    <div class="section-header">
+      <span class="section-num">§ 02</span>
+      <h2 class="section-title">Leistungsbeschreibung</h2>
+    </div>
+    <div class="section-body">
+      <p>Polly ist eine soziale Abstimmungs-Plattform für iOS mit folgenden Funktionen:</p>
+      <ul>
+        <li>Erstellen und Veröffentlichen von Fragen (Polls) mit zwei Antwortoptionen (A/B)</li>
+        <li>Abstimmen auf Beiträge anderer Nutzer (A/B-Voting)</li>
+        <li>Kommentieren und Antworten auf Kommentare (verschachtelte Kommentare)</li>
+        <li>Teilen von Beiträgen über systemseitige Teilen-Funktionen</li>
+        <li>Personalisiertes Nutzerprofil mit Benutzername, Biografie und Profilfoto</li>
+        <li>Push-Benachrichtigungen über neue Stimmen, Kommentare und Antworten</li>
+        <li>Kategorisierter Feed (Trending / Neu) mit Kategorien wie Lifestyle, Tech, Food, Fitness u. a.</li>
+        <li>Swipe-Modus zur schnellen Abstimmung</li>
+        <li>Community-Punkte-System</li>
+        <li>Verifizierungs-Badge für Nutzer</li>
+      </ul>
+      <p>Wir behalten uns das Recht vor, den Funktionsumfang jederzeit zu ändern, zu erweitern oder einzuschränken. Ein Anspruch auf bestimmte Funktionen besteht nicht.</p>
+    </div>
+  </div>
+
+  <!-- §3 -->
+  <div class="legal-section" id="de-registrierung">
+    <div class="section-header">
+      <span class="section-num">§ 03</span>
+      <h2 class="section-title">Registrierung &amp; Konto</h2>
+    </div>
+    <div class="section-body">
+      <p>Die volle Nutzung der App setzt eine kostenlose Registrierung voraus. Diese ist möglich über:</p>
+      <ul>
+        <li><strong>E-Mail &amp; Passwort:</strong> Angabe einer gültigen E-Mail-Adresse und eines sicheren Passworts. Ein Passwort-Reset ist jederzeit per E-Mail möglich.</li>
+        <li><strong>Sign in with Apple:</strong> Authentifizierung über deinen Apple-Account (Apple ID).</li>
+      </ul>
+      <p>Bei der Registrierung wählst du einen eindeutigen Benutzernamen. Du bist verantwortlich für:</p>
+      <ul>
+        <li>Die Richtigkeit und Aktualität deiner Angaben</li>
+        <li>Die Geheimhaltung deiner Zugangsdaten</li>
+        <li>Alle Aktivitäten, die unter deinem Konto durchgeführt werden</li>
+      </ul>
+      <p>Jede natürliche Person darf nur ein Konto anlegen. Die Übertragung von Konten auf Dritte ist nicht gestattet.</p>
+      <h4>Benutzernamen-Änderung</h4>
+      <p>Du kannst deinen Benutzernamen in den Einstellungen ändern, sofern der gewünschte Name noch nicht vergeben ist.</p>
+      <h4>Kontolöschung</h4>
+      <p>Du kannst dein Konto jederzeit und ohne Angabe von Gründen in den App-Einstellungen dauerhaft löschen. Mit der Löschung werden dein Profil, deine Beiträge, Stimmen, Kommentare und alle personenbezogenen Daten gemäß unserer Datenschutzerklärung gelöscht.</p>
+    </div>
+  </div>
+
+  <!-- §4 -->
+  <div class="legal-section" id="de-pflichten">
+    <div class="section-header">
+      <span class="section-num">§ 04</span>
+      <h2 class="section-title">Nutzerpflichten</h2>
+    </div>
+    <div class="section-body">
+      <p>Die Nutzung der App ist nur im Rahmen dieser Bedingungen und der geltenden Gesetze erlaubt. Insbesondere ist es <strong>verboten</strong>:</p>
+      <ul>
+        <li>Inhalte zu veröffentlichen, die beleidigend, rassistisch, sexistisch, pornografisch, gewaltverherrlichend, diskriminierend oder anderweitig rechtswidrig sind</li>
+        <li>Andere Nutzer zu belästigen, zu bedrohen, zu mobben oder zu stalken</li>
+        <li>Spam, unerwünschte Werbebotschaften oder Kettennachrichten zu verbreiten</li>
+        <li>Falsche Identitäten anzunehmen oder mehrfache Konten zu erstellen</li>
+        <li>Den Betrieb der App durch technische Mittel zu stören, zu sabotieren oder zu manipulieren</li>
+        <li>Scraping, automatisierte Abfragen oder Reverse Engineering der App oder ihrer API durchzuführen</li>
+        <li>Rechte Dritter zu verletzen, insbesondere Urheberrechte, Markenrechte oder Persönlichkeitsrechte</li>
+        <li>Minderjährige zu gefährden, anzüglich anzusprechen oder ihnen schädliche Inhalte zugänglich zu machen</li>
+        <li>Inhalte zu veröffentlichen, die gegen den Jugendmedienschutz-Staatsvertrag (JMStV) oder das Jugendschutzgesetz verstoßen</li>
+        <li>Falschinformationen (Desinformation) zu verbreiten, die die öffentliche Sicherheit oder Gesundheit gefährden könnten</li>
+      </ul>
+      <div class="box box-warn">
+        <strong>Folgen von Verstößen:</strong> Verstöße gegen diese Pflichten können zur sofortigen vorübergehenden oder dauerhaften Sperrung bzw. Löschung des Kontos führen und können zivil- oder strafrechtliche Konsequenzen nach sich ziehen. Wir behalten uns vor, Verstöße bei zuständigen Behörden zu melden.
+      </div>
+    </div>
+  </div>
+
+  <!-- §5 -->
+  <div class="legal-section" id="de-inhalte">
+    <div class="section-header">
+      <span class="section-num">§ 05</span>
+      <h2 class="section-title">Nutzergenerierte Inhalte</h2>
+    </div>
+    <div class="section-body">
+      <p>Inhalte, die du in der App erstellst (Fragen, Antwortoptionen, Beschreibungen, Bilder, Kommentare, Benutzername, Biografie), bleiben <strong>dein geistiges Eigentum</strong>.</p>
+      <p>Mit dem Veröffentlichen räumst du uns eine <strong>kostenlose, nicht-exklusive, weltweite, übertragbare Lizenz</strong> ein, diese Inhalte zum Betrieb und zur Bereitstellung des Dienstes zu nutzen, zu speichern, anzuzeigen und zu übertragen. Diese Lizenz endet mit Löschung der Inhalte oder deines Kontos.</p>
+      <p>Du gewährleistest, dass deine Inhalte keine Rechte Dritter verletzen und dass du zur Veröffentlichung berechtigt bist. Du trägst die alleinige Verantwortung für sämtliche von dir veröffentlichten Inhalte.</p>
+      <p>Wir sind berechtigt, Inhalte, die gegen diese Bedingungen, geltendes Recht oder unsere Community-Richtlinien verstoßen, ohne vorherige Ankündigung zu entfernen oder einzuschränken.</p>
+    </div>
+  </div>
+
+  <!-- §6 -->
+  <div class="legal-section" id="de-ip">
+    <div class="section-header">
+      <span class="section-num">§ 06</span>
+      <h2 class="section-title">Geistiges Eigentum</h2>
+    </div>
+    <div class="section-body">
+      <p>Die App selbst, ihr Design, ihr Quellcode, ihre Grafiken, Logos, die Marke „Polly" sowie sonstige nicht von Nutzern stammende Inhalte sind urheberrechtlich geschützt und stehen im Eigentum von Yacouba Pfälzner oder seinen Lizenzgebern.</p>
+      <p>Die Nutzung der App begründet kein Eigentumsrecht an der App oder ihren Bestandteilen. Jede Vervielfältigung, Verbreitung, Dekompilierung oder sonstige Nutzung über den bestimmungsgemäßen Gebrauch hinaus bedarf der ausdrücklichen schriftlichen Zustimmung.</p>
+    </div>
+  </div>
+
+  <!-- §7 -->
+  <div class="legal-section" id="de-haftung">
+    <div class="section-header">
+      <span class="section-num">§ 07</span>
+      <h2 class="section-title">Haftung</h2>
+    </div>
+    <div class="section-body">
+      <p>Der Dienst wird <strong>„so wie er ist" (as-is)</strong> angeboten. Wir übernehmen keine Garantie für ununterbrochene Verfügbarkeit, Fehlerfreiheit oder eine bestimmte Qualität des Dienstes.</p>
+      <p>Wir haften nicht für:</p>
+      <ul>
+        <li>Schäden durch Inhalte anderer Nutzer</li>
+        <li>Datenverluste, die nicht auf grober Fahrlässigkeit oder Vorsatz beruhen</li>
+        <li>Fehler, Ausfälle oder Datenschutzverletzungen durch Drittanbieter (insb. Supabase, Firebase/Google, Apple)</li>
+        <li>Entgangene Gewinne, mittelbare Schäden oder Folgeschäden</li>
+        <li>Schäden durch höhere Gewalt, Cyberangriffe auf Drittanbieter oder andere unvorhersehbare Ereignisse</li>
+      </ul>
+      <p>Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei leichter Fahrlässigkeit haften wir nur bei der Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und nur in Höhe des typischerweise vorhersehbaren Schadens. Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie die Haftung nach dem Produkthaftungsgesetz bleiben unberührt.</p>
+    </div>
+  </div>
+
+  <!-- §8 -->
+  <div class="legal-section" id="de-kuendigung">
+    <div class="section-header">
+      <span class="section-num">§ 08</span>
+      <h2 class="section-title">Kündigung &amp; Sperrung</h2>
+    </div>
+    <div class="section-body">
+      <p><strong>Kündigung durch den Nutzer:</strong> Du kannst dein Konto jederzeit und ohne Einhaltung einer Frist über die App-Einstellungen löschen. Das Nutzungsverhältnis endet damit sofort.</p>
+      <p><strong>Sperrung durch uns:</strong> Wir behalten uns das Recht vor, Konten bei Verstößen gegen diese Bedingungen vorübergehend oder dauerhaft zu sperren, insbesondere bei:</p>
+      <ul>
+        <li>Schwerwiegenden oder wiederholten Verstößen gegen § 4</li>
+        <li>Verdacht auf Betrug, Account-Manipulation oder Missbrauch</li>
+        <li>Rechtlichen Anforderungen (z. B. behördliche Anordnung, gerichtlicher Beschluss)</li>
+        <li>Fehlender oder falscher Altersangabe (Personen unter 13 Jahren)</li>
+      </ul>
+      <p>Im Falle einer dauerhaften Sperrung werden deine Daten gemäß unserer Datenschutzerklärung behandelt.</p>
+    </div>
+  </div>
+
+  <!-- §9 -->
+  <div class="legal-section" id="de-aenderungen">
+    <div class="section-header">
+      <span class="section-num">§ 09</span>
+      <h2 class="section-title">Änderungen der Bedingungen</h2>
+    </div>
+    <div class="section-body">
+      <p>Wir behalten uns vor, diese Bedingungen jederzeit mit Wirkung für die Zukunft zu ändern. Über wesentliche Änderungen informieren wir dich per Push-Benachrichtigung, per E-Mail oder durch einen Hinweis beim nächsten App-Start.</p>
+      <p>Wenn du die App nach dem Inkrafttreten geänderter Bedingungen weiterhin nutzt, gilt dies als Zustimmung zu den neuen Bedingungen. Wenn du nicht zustimmst, musst du die Nutzung der App einstellen und dein Konto löschen.</p>
+    </div>
+  </div>
+
+  <!-- §10 -->
+  <div class="legal-section" id="de-sonstiges">
+    <div class="section-header">
+      <span class="section-num">§ 10</span>
+      <h2 class="section-title">Sonstiges &amp; Anwendbares Recht</h2>
+    </div>
+    <div class="section-body">
+      <p>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand ist, soweit gesetzlich zulässig, der Wohnsitz des Anbieters.</p>
+      <p>Sollten einzelne Bestimmungen dieser Bedingungen unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der unwirksamen Bestimmung tritt eine wirksame Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt (Salvatorische Klausel).</p>
+      <p>Diese App ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc. Apple Inc. ist nicht Partei dieser Bedingungen und nicht verantwortlich für die App oder ihren Inhalt. Für Support und Reklamationen wende dich ausschließlich an <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a>.</p>
+      <p>Diese Nutzungsbedingungen sind in deutscher und englischer Sprache verfügbar. Im Falle von Widersprüchen zwischen den Sprachversionen gilt die <strong>deutsche Version</strong> als maßgeblich.</p>
+    </div>
+  </div>
+
+</div><!-- /de -->
+
+
+<!-- ══════════════════════════════════════════
+     ENGLISH
+══════════════════════════════════════════ -->
+<div class="en">
+
+  <div class="doc-hero">
+    <div class="doc-badge">📋 Legal Document</div>
+    <h1 class="doc-title">Terms of Use</h1>
+    <div class="doc-meta">
+      <span>🗳️ Polly App</span>
+      <span>📅 Last updated: March 17, 2025</span>
+      <span>📱 iOS Application</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#en-scope">Scope &amp; Operator</a></li>
+      <li><a href="#en-services">Services Description</a></li>
+      <li><a href="#en-account">Registration &amp; Account</a></li>
+      <li><a href="#en-conduct">User Obligations</a></li>
+      <li><a href="#en-ugc">User-Generated Content</a></li>
+      <li><a href="#en-ip">Intellectual Property</a></li>
+      <li><a href="#en-liability">Liability</a></li>
+      <li><a href="#en-termination">Termination &amp; Suspension</a></li>
+      <li><a href="#en-changes">Changes to Terms</a></li>
+      <li><a href="#en-misc">Miscellaneous &amp; Governing Law</a></li>
+    </ol>
+  </div>
+
+  <div class="box box-info">
+    <strong>Note:</strong> These Terms of Use govern your use of the iOS mobile application <strong>Polly</strong>. Please read them carefully before using the app. By using the app, you agree to these terms.
+  </div>
+
+  <div class="legal-section" id="en-scope">
+    <div class="section-header"><span class="section-num">§ 01</span><h2 class="section-title">Scope &amp; Operator</h2></div>
+    <div class="section-body">
+      <p>These Terms of Use ("Terms") govern the use of the iOS application <strong>Polly</strong> ("App" or "Service"), operated by:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Operator</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">🏠</span><div><div class="contact-label">Postal Address</div><div class="contact-value">The full postal address will be provided upon request via email.</div></div></div>
+      </div>
+      <p style="margin-top:16px">The App is intended for private, non-commercial use only. Use by persons under 13 years of age is not permitted. Persons between 13 and 16 years of age require parental consent.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-services">
+    <div class="section-header"><span class="section-num">§ 02</span><h2 class="section-title">Services Description</h2></div>
+    <div class="section-body">
+      <p>Polly is a social voting platform for iOS offering:</p>
+      <ul>
+        <li>Creating and publishing questions (polls) with two answer options (A/B)</li>
+        <li>Voting on other users' posts (A/B voting)</li>
+        <li>Commenting and replying to comments (nested comments)</li>
+        <li>Sharing posts via system share sheets</li>
+        <li>Personalized profile with username, bio, and profile picture</li>
+        <li>Push notifications for new votes, comments, and replies</li>
+        <li>Categorized feed (Trending / New) with categories including Lifestyle, Tech, Food, Fitness, etc.</li>
+        <li>Swipe mode for rapid voting</li>
+        <li>Community points system and verification badges</li>
+      </ul>
+      <p>We reserve the right to modify, expand, or restrict features at any time. No claim to specific features exists.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-account">
+    <div class="section-header"><span class="section-num">§ 03</span><h2 class="section-title">Registration &amp; Account</h2></div>
+    <div class="section-body">
+      <p>Full use of all features requires free registration via:</p>
+      <ul>
+        <li><strong>Email &amp; Password:</strong> A valid email address and secure password. Password reset is available at any time.</li>
+        <li><strong>Sign in with Apple:</strong> Authentication via your Apple ID.</li>
+      </ul>
+      <p>You are solely responsible for the accuracy of your details, keeping credentials confidential, and all activity under your account. Each person may only create one account.</p>
+      <h4>Account Deletion</h4>
+      <p>You may permanently delete your account at any time in the app settings. All personal data will be deleted in accordance with our Privacy Policy.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-conduct">
+    <div class="section-header"><span class="section-num">§ 04</span><h2 class="section-title">User Obligations</h2></div>
+    <div class="section-body">
+      <p>Use of the app is only permitted within these Terms and applicable law. The following are strictly <strong>prohibited</strong>:</p>
+      <ul>
+        <li>Posting content that is offensive, racist, sexist, pornographic, violent, discriminatory, or otherwise illegal</li>
+        <li>Harassing, threatening, bullying, or stalking other users</li>
+        <li>Distributing spam, unsolicited advertising, or chain messages</li>
+        <li>Creating false identities or multiple accounts</li>
+        <li>Disrupting or manipulating app operations through technical means</li>
+        <li>Scraping, automated queries, or reverse engineering the app or its API</li>
+        <li>Infringing third-party rights (copyright, trademark, personality rights)</li>
+        <li>Endangering or soliciting minors or exposing them to harmful content</li>
+        <li>Spreading disinformation that could endanger public safety or health</li>
+      </ul>
+      <div class="box box-warn">
+        <strong>Consequences of violations:</strong> Violations may result in immediate temporary or permanent suspension or deletion of the account, and may have civil or criminal consequences. We reserve the right to report violations to competent authorities.
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-ugc">
+    <div class="section-header"><span class="section-num">§ 05</span><h2 class="section-title">User-Generated Content</h2></div>
+    <div class="section-body">
+      <p>Content you create in the app (questions, options, descriptions, images, comments, username, bio) remains <strong>your intellectual property</strong>.</p>
+      <p>By publishing, you grant us a <strong>free, non-exclusive, worldwide, transferable licence</strong> to use, store, display, and transmit this content to operate the service. This licence ends when the content or your account is deleted.</p>
+      <p>You warrant that your content does not infringe any third-party rights and that you are authorised to publish it. You bear sole responsibility for all content you publish.</p>
+      <p>We are entitled to remove or restrict content that violates these Terms, applicable law, or community guidelines — without prior notice.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-ip">
+    <div class="section-header"><span class="section-num">§ 06</span><h2 class="section-title">Intellectual Property</h2></div>
+    <div class="section-body">
+      <p>The app, its design, source code, graphics, logos, and the "Polly" brand are protected by copyright and are the property of Yacouba Pfälzner or his licensors. Use of the app does not create any ownership rights in the app or its components. Any reproduction, distribution, decompilation, or use beyond the intended purpose requires explicit written consent.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-liability">
+    <div class="section-header"><span class="section-num">§ 07</span><h2 class="section-title">Liability</h2></div>
+    <div class="section-body">
+      <p>The service is provided <strong>"as is"</strong>. We make no warranty of uninterrupted availability, error-free operation, or specific quality. We are not liable for: damage from other users' content; data loss not caused by gross negligence or intent; failures or data breaches of third-party providers (Supabase, Firebase/Google, Apple); lost profits, indirect or consequential damages; or force majeure events.</p>
+      <p>Our liability is limited to intent and gross negligence. For slight negligence, liability is limited to breaches of cardinal contractual obligations and foreseeable damages. Liability for personal injury and product liability remain unaffected.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-termination">
+    <div class="section-header"><span class="section-num">§ 08</span><h2 class="section-title">Termination &amp; Suspension</h2></div>
+    <div class="section-body">
+      <p><strong>Termination by user:</strong> You may delete your account at any time via app settings, immediately terminating the relationship.</p>
+      <p><strong>Suspension by us:</strong> We reserve the right to temporarily or permanently suspend accounts for serious or repeated violations of § 4, suspected fraud or manipulation, legal requirements (court order, official instruction), or false age information.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-changes">
+    <div class="section-header"><span class="section-num">§ 09</span><h2 class="section-title">Changes to Terms</h2></div>
+    <div class="section-body">
+      <p>We reserve the right to change these Terms at any time with future effect. We will notify you of material changes via push notification, email, or on next app launch. Continued use after changes take effect constitutes acceptance. If you do not agree, you must stop using the app and delete your account.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-misc">
+    <div class="section-header"><span class="section-num">§ 10</span><h2 class="section-title">Miscellaneous &amp; Governing Law</h2></div>
+    <div class="section-body">
+      <p>These Terms are governed by the laws of the Federal Republic of Germany, excluding the UN Convention on Contracts for the International Sale of Goods (CISG). Place of jurisdiction is, to the extent legally permissible, the operator's place of residence.</p>
+      <p>If any provision is or becomes invalid, the remaining provisions remain in effect (severability clause).</p>
+      <p>This app is an independent product with no affiliation to Apple Inc. Apple Inc. is not a party to these Terms and bears no responsibility for the app or its content. For support and complaints contact <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a> exclusively.</p>
+      <p>In case of conflicts between language versions, the <strong>German version</strong> shall prevail.</p>
+    </div>
+  </div>
+
+</div><!-- /en -->
+
+</div><!-- /doc-content -->
+</main>
+
+<footer>
+  <p>© 2025 Yacouba Pfälzner · Polly App · <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
+    document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(observeSections, 80);
+  }
+
+  function observeSections() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 65);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.legal-section').forEach(el => observer.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setLang('de');
+    observeSections();
+  });
+</script>
+</body>
+</html>

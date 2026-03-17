@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polly – Datenschutzerklärung / Privacy Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --surface: #121820;
+    --surface2: #1a2230;
+    --border: rgba(255,255,255,0.07);
+    --accent: #0ea5e9;
+    --accent2: #7dd3fc;
+    --accent-glow: rgba(14,165,233,0.15);
+    --text: #eef2f7;
+    --text-muted: #8a96a8;
+    --text-subtle: #4a5568;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.72;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,15,20,0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(16px, 5vw, 60px);
+  }
+  .header-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 16px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon { font-size: 26px; filter: drop-shadow(0 0 10px rgba(14,165,233,0.4)); }
+  .logo-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--text); letter-spacing: -0.3px;
+  }
+
+  .lang-switch {
+    display: flex; align-items: center;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50px; padding: 3px; gap: 2px;
+  }
+  .lang-btn {
+    padding: 5px 14px; border: none; cursor: pointer;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    transition: all 0.2s ease;
+    color: var(--text-muted); background: transparent;
+  }
+  .lang-btn.active {
+    background: var(--accent); color: #fff;
+    box-shadow: 0 2px 12px rgba(14,165,233,0.35);
+  }
+
+  /* ── Main ── */
+  main {
+    position: relative; z-index: 1;
+    padding: 0 clamp(16px, 5vw, 60px) 80px;
+  }
+  .doc-content { max-width: 860px; margin: 0 auto; padding-top: 52px; }
+
+  /* Hero */
+  .doc-hero { margin-bottom: 52px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+  .doc-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(14,165,233,0.25);
+    border-radius: 50px;
+    font-size: 12px; font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .doc-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.12; color: var(--text);
+    margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .doc-meta {
+    font-size: 13.5px; color: var(--text-subtle);
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px; margin-bottom: 48px;
+  }
+  .toc-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--text-subtle); margin-bottom: 14px;
+  }
+  .toc ol {
+    list-style: none; counter-reset: toc;
+    display: grid; gap: 6px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .toc ol li { counter-increment: toc; }
+  .toc ol li a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13.5px;
+    display: flex; align-items: baseline; gap: 8px;
+    transition: color 0.15s;
+  }
+  .toc ol li a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 11px; color: var(--accent2);
+    font-weight: 600; min-width: 22px;
+  }
+  .toc ol li a:hover { color: var(--text); }
+
+  /* Sections */
+  .legal-section {
+    margin-bottom: 48px;
+    scroll-margin-top: 90px;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .legal-section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-size: 11px; font-weight: 700;
+    color: var(--accent2); letter-spacing: 1px;
+    text-transform: uppercase; min-width: 28px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; color: var(--text); letter-spacing: -0.2px;
+  }
+  .section-body { padding-left: 40px; }
+
+  p { margin-bottom: 14px; color: var(--text-muted); }
+  p:last-child { margin-bottom: 0; }
+
+  h4 {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    margin: 22px 0 10px;
+  }
+
+  ul {
+    padding-left: 20px; margin-bottom: 14px;
+    color: var(--text-muted); display: grid; gap: 6px;
+  }
+  li { padding-left: 4px; }
+
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .box {
+    border-radius: var(--radius-sm);
+    padding: 16px 18px; margin: 18px 0;
+    border-left: 3px solid; font-size: 14px;
+  }
+  .box-info { background: rgba(14,165,233,0.08); border-color: var(--accent); color: var(--text-muted); }
+  .box-warn { background: rgba(251,191,36,0.07); border-color: #fbbf24; color: var(--text-muted); }
+  .box-green { background: rgba(34,197,94,0.07); border-color: #22c55e; color: var(--text-muted); }
+  .box strong { color: var(--text); }
+
+  /* Data table */
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0; font-size: 13.5px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .data-table th {
+    text-align: left; padding: 10px 14px;
+    background: var(--surface2);
+    color: var(--text-subtle);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.015); }
+
+  /* Chips */
+  .chip {
+    display: inline-block; padding: 2px 8px;
+    border-radius: 4px; font-size: 11.5px; font-weight: 500;
+    white-space: nowrap;
+  }
+  .chip-b { background: rgba(14,165,233,0.15); color: #7dd3fc; }
+  .chip-f { background: rgba(251,191,36,0.12); color: #fcd34d; }
+  .chip-a { background: rgba(244,63,94,0.12); color: #fb7185; }
+  .chip-c { background: rgba(34,197,94,0.12); color: #4ade80; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 16px;
+  }
+  .contact-row { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .contact-icon { font-size: 18px; width: 28px; text-align: center; }
+  .contact-label { color: var(--text-subtle); font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .contact-value { color: var(--text); }
+
+  /* Third party card */
+  .provider-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .provider-card h5 {
+    font-size: 14px; font-weight: 600;
+    color: var(--text); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .provider-card p { font-size: 13.5px; margin-bottom: 6px; }
+  .provider-card p:last-child { margin-bottom: 0; }
+  .provider-row { display: flex; gap: 8px; }
+  .provider-label { color: var(--text-subtle); min-width: 80px; font-size: 13px; }
+  .provider-val { color: var(--text-muted); font-size: 13px; }
+
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 28px clamp(16px, 5vw, 60px);
+    text-align: center;
+  }
+  footer p { font-size: 12.5px; color: var(--text-subtle); margin: 0; }
+
+  .en { display: none; }
+
+  @media (max-width: 600px) {
+    .toc ol { grid-template-columns: 1fr; }
+    .section-body { padding-left: 0; }
+    .data-table { font-size: 12px; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+    .provider-row { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="logo-icon">🗳️</span>
+      <span class="logo-name">Polly</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('de')" id="btn-de">Deutsch</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="doc-content">
+
+<!-- ══════════════════════════════════════════
+     DEUTSCH
+══════════════════════════════════════════ -->
+<div class="de">
+
+  <div class="doc-hero">
+    <div class="doc-badge">🔐 Datenschutz</div>
+    <h1 class="doc-title">Datenschutzerklärung</h1>
+    <div class="doc-meta">
+      <span>🗳️ Polly App</span>
+      <span>📅 Stand: 17. März 2025</span>
+      <span>⚖️ Gemäß DSGVO &amp; BDSG</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Inhaltsverzeichnis</div>
+    <ol>
+      <li><a href="#de-verantwortlicher">Verantwortlicher</a></li>
+      <li><a href="#de-grundsaetze">Verarbeitungsgrundsätze</a></li>
+      <li><a href="#de-daten">Erhobene Daten</a></li>
+      <li><a href="#de-zwecke">Verarbeitungszwecke</a></li>
+      <li><a href="#de-dritte">Drittanbieter &amp; Übermittlungen</a></li>
+      <li><a href="#de-speicher">Speicherdauer</a></li>
+      <li><a href="#de-rechte">Deine Rechte</a></li>
+      <li><a href="#de-kinder">Minderjährige</a></li>
+      <li><a href="#de-sicherheit">Datensicherheit</a></li>
+      <li><a href="#de-kontakt">Kontakt &amp; Änderungen</a></li>
+    </ol>
+  </div>
+
+  <div class="box box-info">
+    <strong>DSGVO-Hinweis:</strong> Diese Datenschutzerklärung informiert dich gemäß Art. 13 und 14 der Datenschutz-Grundverordnung (EU) 2016/679 (DSGVO) sowie des Bundesdatenschutzgesetzes (BDSG) darüber, wie und warum wir personenbezogene Daten verarbeiten.
+  </div>
+
+  <!-- §1 -->
+  <div class="legal-section" id="de-verantwortlicher">
+    <div class="section-header">
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">Verantwortlicher (Art. 4 Nr. 7 DSGVO)</h2>
+    </div>
+    <div class="section-body">
+      <p>Verantwortlicher im Sinne der DSGVO für die Verarbeitung personenbezogener Daten in der App <strong>Polly</strong> ist:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Verantwortlicher</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">E-Mail (Datenschutzanfragen)</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">🏠</span><div><div class="contact-label">Postanschrift</div><div class="contact-value">Die vollständige Postadresse wird auf Anfrage per E-Mail mitgeteilt.</div></div></div>
+        <div class="contact-row"><span class="contact-icon">⏱️</span><div><div class="contact-label">Antwortfrist</div><div class="contact-value">Innerhalb von 30 Tagen (Art. 12 Abs. 3 DSGVO)</div></div></div>
+      </div>
+      <p style="margin-top:16px">Da es sich um ein Einzelunternehmen ohne regelmäßige umfangreiche Verarbeitung besonderer Kategorien personenbezogener Daten handelt, besteht keine Pflicht zur Benennung eines Datenschutzbeauftragten nach Art. 37 DSGVO i. V. m. § 38 BDSG. Anfragen richte bitte direkt an die oben genannte E-Mail-Adresse.</p>
+    </div>
+  </div>
+
+  <!-- §2 -->
+  <div class="legal-section" id="de-grundsaetze">
+    <div class="section-header">
+      <span class="section-num">§ 02</span>
+      <h2 class="section-title">Verarbeitungsgrundsätze (Art. 5 DSGVO)</h2>
+    </div>
+    <div class="section-body">
+      <p>Wir verarbeiten personenbezogene Daten nur, soweit eine Rechtsgrundlage nach Art. 6 DSGVO vorliegt. Dabei halten wir folgende Grundsätze ein:</p>
+      <ul>
+        <li><strong>Rechtmäßigkeit, Transparenz und Fairness:</strong> Verarbeitung nur auf Basis einer gültigen Rechtsgrundlage.</li>
+        <li><strong>Zweckbindung:</strong> Daten werden nur für festgelegte, eindeutige und legitime Zwecke erhoben und nicht zweckfremd weiterverarbeitet.</li>
+        <li><strong>Datenminimierung:</strong> Wir erheben nur die Daten, die für den jeweiligen Zweck tatsächlich erforderlich sind.</li>
+        <li><strong>Richtigkeit:</strong> Wir treffen angemessene Maßnahmen, um unrichtige Daten zu berichtigen oder zu löschen.</li>
+        <li><strong>Speicherbegrenzung:</strong> Personenbezogene Daten werden nicht länger als notwendig gespeichert.</li>
+        <li><strong>Integrität &amp; Vertraulichkeit:</strong> Technische und organisatorische Maßnahmen (TOMs) schützen deine Daten vor unbefugtem Zugriff.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- §3 -->
+  <div class="legal-section" id="de-daten">
+    <div class="section-header">
+      <span class="section-num">§ 03</span>
+      <h2 class="section-title">Erhobene und verarbeitete Daten</h2>
+    </div>
+    <div class="section-body">
+
+      <h4>3.1 Registrierungs- und Profildaten</h4>
+      <table class="data-table">
+        <thead>
+          <tr><th>Datenkategorie</th><th>Konkrete Daten</th><th>Rechtsgrundlage</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Authentifizierung</td>
+            <td>E-Mail-Adresse, Passwort (gehasht, nie im Klartext), Apple ID Token (bei Apple Sign-In)</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+            <td>Anmeldung, Konto-Sicherheit</td>
+          </tr>
+          <tr>
+            <td>Profilinformationen</td>
+            <td>Benutzername (Pflicht), Biografie (optional), Profilfoto als URL (optional)</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+            <td>Darstellung des Profils</td>
+          </tr>
+          <tr>
+            <td>Aktivitätsstatistiken</td>
+            <td>Anzahl erstellter Beiträge, gegebene Stimmen, erhaltene Stimmen, gegebene/erhaltene Kommentare, Community-Punkte, Verifizierungsstatus</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+            <td>Gamification, Profilanzeige</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>3.2 Nutzergenerierte Inhalte</h4>
+      <table class="data-table">
+        <thead>
+          <tr><th>Datenkategorie</th><th>Konkrete Daten</th><th>Rechtsgrundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Beiträge (Posts)</td>
+            <td>Fragetext, Beschreibung (optional), Bilder (optional), Kategorie-ID, Abstimmungs-Labels (Option A/B), Zeitstempel, Autor-ID, gesponserter Status</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+          </tr>
+          <tr>
+            <td>Stimmen (Votes)</td>
+            <td>Gewählte Option (A oder B), Beitrag-ID, Nutzer-ID, Zeitstempel</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+          </tr>
+          <tr>
+            <td>Kommentare &amp; Antworten</td>
+            <td>Kommentartext, Beitrag-ID, elterliche Kommentar-ID (bei Antworten), Nutzer-ID, Like-Anzahl, Zeitstempel</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>3.3 Gerätedaten &amp; technische Daten</h4>
+      <table class="data-table">
+        <thead>
+          <tr><th>Datenkategorie</th><th>Konkrete Daten</th><th>Rechtsgrundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Push-Benachrichtigungen</td>
+            <td>APNs Device Token (iOS-Gerätekennzeichnung), Plattform-Kennung „ios", Nutzer-ID</td>
+            <td><span class="chip chip-a">Art. 6 I lit. a (Einwilligung)</span></td>
+          </tr>
+          <tr>
+            <td>Sitzungsdaten</td>
+            <td>Authentifizierungs-Tokens und Sitzungs-IDs (verwaltet durch Supabase Auth)</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>3.4 Nutzungsanalytik über Firebase Analytics</h4>
+      <p>Wir setzen Firebase Analytics (Google LLC) ein, um die Nutzung der App aggregiert und anonymisiert zu analysieren. Folgende Ereignisse werden erfasst:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Ereignis</th><th>Erfasste Parameter</th><th>Rechtsgrundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Registrierung</td><td>Methode (E-Mail, Apple)</td><td rowspan="10"><span class="chip chip-f">Art. 6 I lit. f<br>(berechtigtes Interesse)</span></td></tr>
+          <tr><td>Login / Logout</td><td>Methode (E-Mail, Apple)</td></tr>
+          <tr><td>Feed aufgerufen</td><td>Filter-Typ (Trending / Neu)</td></tr>
+          <tr><td>Beitrag aufgerufen</td><td>Beitrag-ID</td></tr>
+          <tr><td>Abgestimmt</td><td>Beitrag-ID, Stimm-Typ (A/B)</td></tr>
+          <tr><td>Beitrag erstellt</td><td>Kategorie-ID, ob Bild vorhanden</td></tr>
+          <tr><td>Beitrag geteilt</td><td>Beitrag-ID, Plattform</td></tr>
+          <tr><td>Kommentar erstellt</td><td>Beitrag-ID</td></tr>
+          <tr><td>Benachrichtigung geöffnet</td><td>Benachrichtigungstyp</td></tr>
+          <tr><td>Onboarding abgeschlossen / übersprungen</td><td>Kein Parameter</td></tr>
+        </tbody>
+      </table>
+      <p>Firebase Analytics kann je nach Geräteeinstellung eine Werbe-ID (IDFA auf iOS) verwenden. Wir nutzen Firebase Analytics <strong>ausschließlich zur aggregierten App-Verbesserung</strong> — keine personenidentifizierte Profilerstellung. Du kannst der Analysedatenerfassung widersprechen (→ § 7).</p>
+
+    </div>
+  </div>
+
+  <!-- §4 -->
+  <div class="legal-section" id="de-zwecke">
+    <div class="section-header">
+      <span class="section-num">§ 04</span>
+      <h2 class="section-title">Verarbeitungszwecke &amp; Rechtsgrundlagen</h2>
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr><th>Zweck</th><th>Rechtsgrundlage</th><th>Betroffene Daten</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bereitstellung aller App-Funktionen (Voting, Kommentare, Feed, Profil)</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b DSGVO</span><br><small>Vertragserfüllung</small></td>
+            <td>Alle Daten aus § 3.1–3.3</td>
+          </tr>
+          <tr>
+            <td>Authentifizierung &amp; Konto-Verwaltung</td>
+            <td><span class="chip chip-b">Art. 6 I lit. b DSGVO</span></td>
+            <td>E-Mail, Passwort, Apple Token, Session</td>
+          </tr>
+          <tr>
+            <td>Push-Benachrichtigungen über neue Interaktionen</td>
+            <td><span class="chip chip-a">Art. 6 I lit. a DSGVO</span><br><small>Einwilligung (widerruflich)</small></td>
+            <td>Device Token, Nutzer-ID</td>
+          </tr>
+          <tr>
+            <td>Analyse der App-Nutzung zur Dienst-Verbesserung</td>
+            <td><span class="chip chip-f">Art. 6 I lit. f DSGVO</span><br><small>Berechtigtes Interesse</small></td>
+            <td>Anonymisierte Ereignisdaten (§ 3.4)</td>
+          </tr>
+          <tr>
+            <td>Einhaltung gesetzlicher Aufbewahrungspflichten</td>
+            <td><span class="chip chip-c">Art. 6 I lit. c DSGVO</span><br><small>Rechtliche Verpflichtung</small></td>
+            <td>Je nach gesetzlicher Pflicht</td>
+          </tr>
+          <tr>
+            <td>Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</td>
+            <td><span class="chip chip-f">Art. 6 I lit. f DSGVO</span></td>
+            <td>Je nach Rechtsstreit</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- §5 -->
+  <div class="legal-section" id="de-dritte">
+    <div class="section-header">
+      <span class="section-num">§ 05</span>
+      <h2 class="section-title">Drittanbieter &amp; Datenübermittlungen</h2>
+    </div>
+    <div class="section-body">
+      <p>Wir setzen folgende Auftragsverarbeiter und Drittanbieter ein. Eine Weitergabe an sonstige Dritte (z. B. Werbepartner) findet <strong>nicht</strong> statt.</p>
+
+      <div class="provider-card">
+        <h5>🗄️ Supabase — Backend, Datenbank &amp; Authentifizierung</h5>
+        <div class="provider-row"><span class="provider-label">Anbieter</span><span class="provider-val">Supabase Inc., 970 Toa Payoh North, Singapur 318992</span></div>
+        <div class="provider-row"><span class="provider-label">EU-Server</span><span class="provider-val">AWS eu-central-1 (Frankfurt, Deutschland)</span></div>
+        <div class="provider-row"><span class="provider-label">Zweck</span><span class="provider-val">Speicherung aller Nutzerdaten, Authentifizierung (inkl. Apple Sign-In), Datenbankoperationen, Realtime-Subscriptions für Badge-Updates, Dateiablage (Profilbilder, Beitragsbilder)</span></div>
+        <div class="provider-row"><span class="provider-label">Daten</span><span class="provider-val">Alle Daten aus § 3.1–3.3</span></div>
+        <div class="provider-row"><span class="provider-label">Übermittlungsbasis</span><span class="provider-val">EU-Server (kein Drittlandtransfer); soweit Daten in die USA übermittelt werden: Standardvertragsklauseln (SCCs) gem. Art. 46 Abs. 2 lit. c DSGVO</span></div>
+        <div class="provider-row"><span class="provider-label">Datenschutz</span><span class="provider-val"><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></span></div>
+      </div>
+
+      <div class="provider-card">
+        <h5>📊 Firebase Analytics — Google LLC</h5>
+        <div class="provider-row"><span class="provider-label">Anbieter</span><span class="provider-val">Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA</span></div>
+        <div class="provider-row"><span class="provider-label">Zweck</span><span class="provider-val">Anonymisierte App-Nutzungsanalyse und Ereigniserfassung</span></div>
+        <div class="provider-row"><span class="provider-label">Daten</span><span class="provider-val">Anonymisierte Nutzungsereignisse gemäß § 3.4, ggf. IDFA (je nach Geräteeinstellung)</span></div>
+        <div class="provider-row"><span class="provider-label">Übermittlungsbasis</span><span class="provider-val">SCCs gem. Art. 46 Abs. 2 lit. c DSGVO; Google LLC ist dem EU-US Data Privacy Framework (DPF) beigetreten (zertifiziert)</span></div>
+        <div class="provider-row"><span class="provider-label">Datenschutz</span><span class="provider-val"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></span></div>
+      </div>
+
+      <div class="provider-card">
+        <h5>🍎 Apple Inc. — Sign in with Apple &amp; APNs</h5>
+        <div class="provider-row"><span class="provider-label">Anbieter</span><span class="provider-val">Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</span></div>
+        <div class="provider-row"><span class="provider-label">Zweck</span><span class="provider-val">Optionale Authentifizierung über Apple ID; Zustellung von Push-Benachrichtigungen über Apple Push Notification Service (APNs)</span></div>
+        <div class="provider-row"><span class="provider-label">Daten</span><span class="provider-val">Apple ID Token (bei Registrierung / Login), Device Token (für Push)</span></div>
+        <div class="provider-row"><span class="provider-label">Übermittlungsbasis</span><span class="provider-val">Apple Inc. ist dem EU-US Data Privacy Framework beigetreten; SCCs gem. Art. 46 Abs. 2 lit. c DSGVO</span></div>
+        <div class="provider-row"><span class="provider-label">Datenschutz</span><span class="provider-val"><a href="https://www.apple.com/legal/privacy/de-ww/" target="_blank">apple.com/legal/privacy</a></span></div>
+      </div>
+
+      <div class="box box-warn">
+        <strong>Hinweis zu Drittlandübermittlungen:</strong> Soweit Daten in die USA oder andere Drittländer außerhalb des EWR übermittelt werden, geschieht dies auf Basis von EU-Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO. Alle genannten US-Anbieter sind dem EU-US Data Privacy Framework zertifiziert oder haben vergleichbare Schutzmaßnahmen implementiert. Trotzdem können in den USA andere Datenschutzniveaus gelten als in der EU.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- §6 -->
+  <div class="legal-section" id="de-speicher">
+    <div class="section-header">
+      <span class="section-num">§ 06</span>
+      <h2 class="section-title">Speicherdauer</h2>
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr><th>Datenkategorie</th><th>Speicherdauer</th><th>Grundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Profildaten (Name, Bio, Profilfoto)</td>
+            <td>Bis zur Kontolöschung, danach unverzügliche Löschung</td>
+            <td>Vertragsende</td>
+          </tr>
+          <tr>
+            <td>Beiträge, Stimmen, Kommentare</td>
+            <td>Bis zur Kontolöschung, danach unverzügliche Löschung</td>
+            <td>Vertragsende</td>
+          </tr>
+          <tr>
+            <td>E-Mail-Adresse (Auth)</td>
+            <td>Bis zur Kontolöschung</td>
+            <td>Vertragsende</td>
+          </tr>
+          <tr>
+            <td>APNs Device Token</td>
+            <td>Bis Kontolöschung oder Widerruf der Benachrichtigungserlaubnis in den Systemeinstellungen</td>
+            <td>Einwilligung / Vertragsende</td>
+          </tr>
+          <tr>
+            <td>Authentifizierungs-Sessions</td>
+            <td>Automatischer Ablauf nach Inaktivität (Supabase Standard-Konfiguration)</td>
+            <td>Sicherheit</td>
+          </tr>
+          <tr>
+            <td>Firebase Analytics-Ereignisdaten</td>
+            <td>Aggregiert und anonymisiert; automatische Löschung nach 14 Monaten (Google-Standard)</td>
+            <td>Berechtigtes Interesse</td>
+          </tr>
+          <tr>
+            <td>Gesetzliche Aufbewahrungspflichten</td>
+            <td>Gemäß gesetzlicher Vorschrift (z. B. § 257 HGB: 6 Jahre; § 147 AO: 10 Jahre), soweit anwendbar</td>
+            <td>Art. 6 I lit. c DSGVO</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="box box-green">
+        <strong>Kontolöschung:</strong> Wenn du dein Konto über die App löschst, werden alle deine personenbezogenen Daten (Profil, Beiträge, Stimmen, Kommentare, Device Token) unverzüglich und vollständig gelöscht – soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.
+      </div>
+    </div>
+  </div>
+
+  <!-- §7 -->
+  <div class="legal-section" id="de-rechte">
+    <div class="section-header">
+      <span class="section-num">§ 07</span>
+      <h2 class="section-title">Deine Rechte als betroffene Person</h2>
+    </div>
+    <div class="section-body">
+      <p>Als betroffene Person stehen dir gemäß DSGVO folgende Rechte zu. Zur Ausübung wende dich an <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a>. Wir antworten innerhalb von <strong>30 Tagen</strong> (Art. 12 Abs. 3 DSGVO).</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Recht</th><th>Inhalt</th><th>Hinweis</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Auskunft</strong><br><small>Art. 15 DSGVO</small></td>
+            <td>Recht zu erfahren, welche Daten wir über dich verarbeiten, zu welchem Zweck und für wie lange</td>
+            <td>Schriftliche Anfrage per E-Mail</td>
+          </tr>
+          <tr>
+            <td><strong>Berichtigung</strong><br><small>Art. 16 DSGVO</small></td>
+            <td>Recht auf Korrektur unrichtiger oder unvollständiger Daten</td>
+            <td>Profildaten direkt in der App änderbar</td>
+          </tr>
+          <tr>
+            <td><strong>Löschung</strong><br><small>Art. 17 DSGVO</small></td>
+            <td>Recht auf Löschung deiner Daten („Recht auf Vergessenwerden")</td>
+            <td>Konto direkt in App löschbar; alternativ per E-Mail</td>
+          </tr>
+          <tr>
+            <td><strong>Einschränkung</strong><br><small>Art. 18 DSGVO</small></td>
+            <td>Recht auf Einschränkung der Verarbeitung in bestimmten Fällen</td>
+            <td>Anfrage per E-Mail</td>
+          </tr>
+          <tr>
+            <td><strong>Datenübertragbarkeit</strong><br><small>Art. 20 DSGVO</small></td>
+            <td>Recht auf Herausgabe deiner Daten in strukturiertem, maschinenlesbarem Format</td>
+            <td>Anfrage per E-Mail; gilt für vertragsbasierte und einwilligungsbasierte Daten</td>
+          </tr>
+          <tr>
+            <td><strong>Widerspruch</strong><br><small>Art. 21 DSGVO</small></td>
+            <td>Recht, der Verarbeitung auf Basis berechtigter Interessen zu widersprechen (insb. Firebase Analytics)</td>
+            <td>Für Analytics: Firebase-Opt-Out über Geräteeinstellungen (Tracking deaktivieren) oder Anfrage per E-Mail</td>
+          </tr>
+          <tr>
+            <td><strong>Widerruf der Einwilligung</strong><br><small>Art. 7 Abs. 3 DSGVO</small></td>
+            <td>Einwilligungen (insb. Push-Benachrichtigungen) können jederzeit ohne Angabe von Gründen widerrufen werden</td>
+            <td>Systemeinstellungen → Mitteilungen → Polly: deaktivieren</td>
+          </tr>
+          <tr>
+            <td><strong>Beschwerde</strong><br><small>Art. 77 DSGVO</small></td>
+            <td>Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, insb. in deinem Wohnsitzland oder dem Land der behaupteten Verletzung</td>
+            <td>Deutsche Aufsichtsbehörden: <a href="https://www.bfdi.bund.de" target="_blank">bfdi.bund.de</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="box box-info">
+        <strong>Zuständige Aufsichtsbehörde:</strong> Die zuständige Datenschutz-Aufsichtsbehörde für unseren Sitz findest du unter <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank">bfdi.bund.de</a>. Du hast das Recht, ohne Angabe von Gründen Beschwerde einzulegen.
+      </div>
+    </div>
+  </div>
+
+  <!-- §8 -->
+  <div class="legal-section" id="de-kinder">
+    <div class="section-header">
+      <span class="section-num">§ 08</span>
+      <h2 class="section-title">Minderjährige</h2>
+    </div>
+    <div class="section-body">
+      <p>Die App ist nicht für Kinder unter 13 Jahren bestimmt und richtet sich nicht gezielt an sie. Für Nutzer zwischen 13 und 16 Jahren ist gemäß Art. 8 DSGVO die Einwilligung eines Erziehungsberechtigten erforderlich, soweit die Verarbeitung auf Einwilligung basiert (insb. Push-Benachrichtigungen).</p>
+      <p>Sollten wir Kenntnis erlangen, dass Daten von Personen unter 13 Jahren ohne Einwilligung der Erziehungsberechtigten erhoben wurden, werden diese Daten unverzüglich und vollständig gelöscht. Erziehungsberechtigte können uns hierzu unter <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a> kontaktieren.</p>
+    </div>
+  </div>
+
+  <!-- §9 -->
+  <div class="legal-section" id="de-sicherheit">
+    <div class="section-header">
+      <span class="section-num">§ 09</span>
+      <h2 class="section-title">Datensicherheit</h2>
+    </div>
+    <div class="section-body">
+      <p>Wir setzen technische und organisatorische Maßnahmen (TOMs) ein, um deine personenbezogenen Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen:</p>
+      <ul>
+        <li><strong>Verschlüsselung:</strong> Alle Datenübertragungen erfolgen über HTTPS/TLS. Passwörter werden ausschließlich gehasht gespeichert (nie im Klartext).</li>
+        <li><strong>Zugriffskontrolle:</strong> Supabase Row-Level Security (RLS) stellt sicher, dass Nutzer nur auf ihre eigenen Daten zugreifen können.</li>
+        <li><strong>Authentifizierung:</strong> Tokenbasierte Authentifizierung mit automatischem Ablauf; optionale Zwei-Faktor-Authentifizierung über Apple ID.</li>
+        <li><strong>Infrastruktur:</strong> Hosting auf ISO 27001-zertifizierten AWS-Rechenzentren in der EU (Frankfurt).</li>
+      </ul>
+      <p>Im unwahrscheinlichen Fall einer Datenschutzverletzung, die voraussichtlich zu einem Risiko für deine Rechte und Freiheiten führt, werden wir die zuständige Aufsichtsbehörde innerhalb von 72 Stunden benachrichtigen (Art. 33 DSGVO) und dich gegebenenfalls direkt informieren (Art. 34 DSGVO).</p>
+    </div>
+  </div>
+
+  <!-- §10 -->
+  <div class="legal-section" id="de-kontakt">
+    <div class="section-header">
+      <span class="section-num">§ 10</span>
+      <h2 class="section-title">Kontakt &amp; Änderungen dieser Erklärung</h2>
+    </div>
+    <div class="section-body">
+      <p>Für alle Datenschutzanfragen, Auskunftsersuchen oder Beschwerden wende dich an:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Kontaktperson</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">E-Mail</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">⏱️</span><div><div class="contact-label">Antwortfrist</div><div class="contact-value">Innerhalb von 30 Tagen (Art. 12 Abs. 3 DSGVO)</div></div></div>
+      </div>
+      <p style="margin-top:20px">Wir behalten uns vor, diese Datenschutzerklärung bei technischen, rechtlichen oder funktionalen Änderungen anzupassen. Die jeweils aktuelle Version ist stets in der App und auf der App Store-Seite abrufbar. Wesentliche Änderungen kommunizieren wir per Push-Benachrichtigung oder Hinweis beim App-Start.</p>
+    </div>
+  </div>
+
+</div><!-- /de -->
+
+
+<!-- ══════════════════════════════════════════
+     ENGLISH
+══════════════════════════════════════════ -->
+<div class="en">
+
+  <div class="doc-hero">
+    <div class="doc-badge">🔐 Data Protection</div>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <div class="doc-meta">
+      <span>🗳️ Polly App</span>
+      <span>📅 Last updated: March 17, 2025</span>
+      <span>⚖️ GDPR Compliant</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#en-controller">Data Controller</a></li>
+      <li><a href="#en-principles">Processing Principles</a></li>
+      <li><a href="#en-data">Data We Collect</a></li>
+      <li><a href="#en-purposes">Purposes &amp; Legal Bases</a></li>
+      <li><a href="#en-third">Third-Party Providers</a></li>
+      <li><a href="#en-retention">Data Retention</a></li>
+      <li><a href="#en-rights">Your Rights</a></li>
+      <li><a href="#en-minors">Minors</a></li>
+      <li><a href="#en-security">Data Security</a></li>
+      <li><a href="#en-contact">Contact &amp; Updates</a></li>
+    </ol>
+  </div>
+
+  <div class="box box-info">
+    <strong>GDPR Notice:</strong> This Privacy Policy informs you pursuant to Art. 13 and 14 GDPR about how and why we process your personal data in the Polly app.
+  </div>
+
+  <div class="legal-section" id="en-controller">
+    <div class="section-header"><span class="section-num">§ 01</span><h2 class="section-title">Data Controller (Art. 4 No. 7 GDPR)</h2></div>
+    <div class="section-body">
+      <p>The data controller for the processing of personal data in the <strong>Polly</strong> app is:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Controller</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">Email (Privacy Requests)</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">🏠</span><div><div class="contact-label">Postal Address</div><div class="contact-value">The full postal address will be provided upon request via email.</div></div></div>
+        <div class="contact-row"><span class="contact-icon">⏱️</span><div><div class="contact-label">Response Time</div><div class="contact-value">Within 30 days (Art. 12(3) GDPR)</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-principles">
+    <div class="section-header"><span class="section-num">§ 02</span><h2 class="section-title">Processing Principles (Art. 5 GDPR)</h2></div>
+    <div class="section-body">
+      <p>We only process personal data where a legal basis under Art. 6 GDPR exists, applying: lawfulness and transparency; purpose limitation; data minimisation; accuracy; storage limitation; and integrity &amp; confidentiality (security).</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-data">
+    <div class="section-header"><span class="section-num">§ 03</span><h2 class="section-title">Data We Collect</h2></div>
+    <div class="section-body">
+
+      <h4>3.1 Registration &amp; Profile Data</h4>
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>Specific Data</th><th>Legal Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Authentication</td><td>Email address, password (hashed, never plaintext), Apple ID token (for Apple Sign-In)</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+          <tr><td>Profile Info</td><td>Username (required), biography (optional), profile photo URL (optional)</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+          <tr><td>Activity Stats</td><td>Post count, votes given/received, comments given/received, community points, verification status</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+        </tbody>
+      </table>
+
+      <h4>3.2 User-Generated Content</h4>
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>Specific Data</th><th>Legal Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Posts</td><td>Question text, description (opt.), images (opt.), category ID, option labels (A/B), timestamp, author ID</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+          <tr><td>Votes</td><td>Chosen option (A or B), post ID, user ID, timestamp</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+          <tr><td>Comments &amp; Replies</td><td>Comment text, post ID, parent comment ID (for replies), user ID, like count, timestamp</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+        </tbody>
+      </table>
+
+      <h4>3.3 Device &amp; Technical Data</h4>
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>Specific Data</th><th>Legal Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Push Notifications</td><td>APNs device token (iOS device identifier), platform "ios", user ID</td><td><span class="chip chip-a">Art. 6(1)(a) — consent</span></td></tr>
+          <tr><td>Session Data</td><td>Authentication tokens and session IDs (managed by Supabase Auth)</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+        </tbody>
+      </table>
+
+      <h4>3.4 Usage Analytics (Firebase Analytics)</h4>
+      <p>We use Firebase Analytics to analyse app usage in an aggregated, anonymised manner. Events captured include: sign-up/login/logout (method), feed viewed (filter), post viewed (post ID), vote cast (post ID, type), post created (category, has image), post shared (post ID, platform), comment created (post ID), notification opened (type), onboarding completed/skipped. Firebase may use IDFA depending on device settings. We use this data <strong>solely for aggregate app improvement</strong> — no individual profiling.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-purposes">
+    <div class="section-header"><span class="section-num">§ 04</span><h2 class="section-title">Purposes &amp; Legal Bases</h2></div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead><tr><th>Purpose</th><th>Legal Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Providing all app features (voting, comments, feed, profile)</td><td><span class="chip chip-b">Art. 6(1)(b) — contract performance</span></td></tr>
+          <tr><td>Authentication &amp; account management</td><td><span class="chip chip-b">Art. 6(1)(b)</span></td></tr>
+          <tr><td>Push notifications for new interactions</td><td><span class="chip chip-a">Art. 6(1)(a) — consent (revocable)</span></td></tr>
+          <tr><td>App usage analytics for service improvement</td><td><span class="chip chip-f">Art. 6(1)(f) — legitimate interests</span></td></tr>
+          <tr><td>Compliance with statutory retention obligations</td><td><span class="chip chip-c">Art. 6(1)(c) — legal obligation</span></td></tr>
+          <tr><td>Establishment, exercise or defence of legal claims</td><td><span class="chip chip-f">Art. 6(1)(f)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-third">
+    <div class="section-header"><span class="section-num">§ 05</span><h2 class="section-title">Third-Party Providers &amp; Data Transfers</h2></div>
+    <div class="section-body">
+      <p>We use the following processors and third-party providers. We do <strong>not</strong> share data with any other third parties (e.g. advertisers).</p>
+
+      <div class="provider-card">
+        <h5>🗄️ Supabase — Backend, Database &amp; Authentication</h5>
+        <div class="provider-row"><span class="provider-label">Provider</span><span class="provider-val">Supabase Inc., 970 Toa Payoh North, Singapore 318992</span></div>
+        <div class="provider-row"><span class="provider-label">EU Server</span><span class="provider-val">AWS eu-central-1 (Frankfurt, Germany)</span></div>
+        <div class="provider-row"><span class="provider-label">Purpose</span><span class="provider-val">Storage of all user data, authentication (incl. Apple Sign-In), database operations, realtime subscriptions, file storage (profile photos, post images)</span></div>
+        <div class="provider-row"><span class="provider-label">Transfer basis</span><span class="provider-val">EU server (no third-country transfer); where US transfer occurs: SCCs per Art. 46(2)(c) GDPR</span></div>
+        <div class="provider-row"><span class="provider-label">Privacy</span><span class="provider-val"><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></span></div>
+      </div>
+
+      <div class="provider-card">
+        <h5>📊 Firebase Analytics — Google LLC</h5>
+        <div class="provider-row"><span class="provider-label">Provider</span><span class="provider-val">Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA</span></div>
+        <div class="provider-row"><span class="provider-label">Purpose</span><span class="provider-val">Anonymised app usage analytics</span></div>
+        <div class="provider-row"><span class="provider-label">Transfer basis</span><span class="provider-val">SCCs per Art. 46(2)(c) GDPR; Google LLC is certified under the EU-US Data Privacy Framework (DPF)</span></div>
+        <div class="provider-row"><span class="provider-label">Privacy</span><span class="provider-val"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></span></div>
+      </div>
+
+      <div class="provider-card">
+        <h5>🍎 Apple Inc. — Sign in with Apple &amp; APNs</h5>
+        <div class="provider-row"><span class="provider-label">Provider</span><span class="provider-val">Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</span></div>
+        <div class="provider-row"><span class="provider-label">Purpose</span><span class="provider-val">Optional authentication via Apple ID; delivery of push notifications via APNs</span></div>
+        <div class="provider-row"><span class="provider-label">Transfer basis</span><span class="provider-val">Apple Inc. is certified under the EU-US Data Privacy Framework; SCCs per Art. 46(2)(c) GDPR</span></div>
+        <div class="provider-row"><span class="provider-label">Privacy</span><span class="provider-val"><a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank">apple.com/legal/privacy</a></span></div>
+      </div>
+
+      <div class="box box-warn">
+        <strong>Third-country transfers (USA):</strong> Where data is transferred to the USA, this is done on the basis of EU Standard Contractual Clauses (SCCs) per Art. 46(2)(c) GDPR. All US providers named are certified under the EU-US Data Privacy Framework or have implemented equivalent safeguards. Note that the US may not provide the same level of data protection as the EU.
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-retention">
+    <div class="section-header"><span class="section-num">§ 06</span><h2 class="section-title">Data Retention</h2></div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead><tr><th>Data Category</th><th>Retention Period</th></tr></thead>
+        <tbody>
+          <tr><td>Profile data (name, bio, photo)</td><td>Until account deletion, then immediately deleted</td></tr>
+          <tr><td>Posts, votes, comments</td><td>Until account deletion, then immediately deleted</td></tr>
+          <tr><td>Email address (auth)</td><td>Until account deletion</td></tr>
+          <tr><td>APNs device token</td><td>Until account deletion or revocation of notification permission in device settings</td></tr>
+          <tr><td>Authentication sessions</td><td>Auto-expiry after inactivity (Supabase default)</td></tr>
+          <tr><td>Firebase Analytics events</td><td>Aggregated, anonymised; deleted after 14 months (Google default)</td></tr>
+          <tr><td>Statutory retention obligations</td><td>As required by applicable law, where applicable</td></tr>
+        </tbody>
+      </table>
+      <div class="box box-green">
+        <strong>Account deletion:</strong> When you delete your account via the app, all your personal data (profile, posts, votes, comments, device token) is immediately and fully deleted — unless statutory retention obligations apply.
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-rights">
+    <div class="section-header"><span class="section-num">§ 07</span><h2 class="section-title">Your Rights (GDPR)</h2></div>
+    <div class="section-body">
+      <p>As a data subject you have the following rights. To exercise them, contact <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a>. We respond within <strong>30 days</strong> (Art. 12(3) GDPR).</p>
+      <table class="data-table">
+        <thead><tr><th>Right</th><th>Content</th><th>How to exercise</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Access</strong> — Art. 15</td><td>Right to know what data we process about you, for what purpose, and for how long</td><td>Email request</td></tr>
+          <tr><td><strong>Rectification</strong> — Art. 16</td><td>Right to correct inaccurate or incomplete data</td><td>Directly in app, or email request</td></tr>
+          <tr><td><strong>Erasure</strong> — Art. 17</td><td>Right to deletion ("right to be forgotten")</td><td>Delete account in app, or email request</td></tr>
+          <tr><td><strong>Restriction</strong> — Art. 18</td><td>Right to restrict processing in certain cases</td><td>Email request</td></tr>
+          <tr><td><strong>Portability</strong> — Art. 20</td><td>Right to receive your data in a structured, machine-readable format</td><td>Email request</td></tr>
+          <tr><td><strong>Object</strong> — Art. 21</td><td>Right to object to processing based on legitimate interests (especially Firebase Analytics)</td><td>Email request or disable tracking in device settings</td></tr>
+          <tr><td><strong>Withdraw consent</strong> — Art. 7(3)</td><td>Right to withdraw consent (especially push notifications) at any time</td><td>Device Settings → Notifications → Polly: disable</td></tr>
+          <tr><td><strong>Complaint</strong> — Art. 77</td><td>Right to lodge a complaint with a supervisory authority in your country of residence</td><td><a href="https://www.bfdi.bund.de" target="_blank">bfdi.bund.de</a> (Germany)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-minors">
+    <div class="section-header"><span class="section-num">§ 08</span><h2 class="section-title">Minors</h2></div>
+    <div class="section-body">
+      <p>The app is not intended for children under 13 and does not target them. For users between 13 and 16, parental consent is required for consent-based processing (Art. 8 GDPR). If we become aware that data from persons under 13 has been collected without parental consent, it will be deleted immediately. Parents/guardians can contact us at <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a>.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-security">
+    <div class="section-header"><span class="section-num">§ 09</span><h2 class="section-title">Data Security</h2></div>
+    <div class="section-body">
+      <p>We implement technical and organisational measures (TOMs) to protect your data:</p>
+      <ul>
+        <li><strong>Encryption:</strong> All data transmissions use HTTPS/TLS. Passwords are stored hashed only — never in plaintext.</li>
+        <li><strong>Access control:</strong> Supabase Row-Level Security (RLS) ensures users can only access their own data.</li>
+        <li><strong>Authentication:</strong> Token-based auth with automatic expiry; optional 2FA via Apple ID.</li>
+        <li><strong>Infrastructure:</strong> Hosted on ISO 27001-certified AWS data centres in the EU (Frankfurt).</li>
+      </ul>
+      <p>In the unlikely event of a data breach likely to risk your rights and freedoms, we will notify the competent supervisory authority within 72 hours (Art. 33 GDPR) and inform you directly where required (Art. 34 GDPR).</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="en-contact">
+    <div class="section-header"><span class="section-num">§ 10</span><h2 class="section-title">Contact &amp; Policy Updates</h2></div>
+    <div class="section-body">
+      <p>For all privacy requests, access inquiries, or complaints:</p>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-icon">👤</span><div><div class="contact-label">Contact</div><div class="contact-value">Yacouba Pfälzner</div></div></div>
+        <div class="contact-row"><span class="contact-icon">✉️</span><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></div></div></div>
+        <div class="contact-row"><span class="contact-icon">⏱️</span><div><div class="contact-label">Response Time</div><div class="contact-value">Within 30 days (Art. 12 GDPR)</div></div></div>
+      </div>
+      <p style="margin-top:20px">We reserve the right to update this Privacy Policy in response to technical, legal, or functional changes. The current version is always available in the app and on the App Store page. We will notify you of material changes via push notification or on next app launch.</p>
+    </div>
+  </div>
+
+</div><!-- /en -->
+
+</div><!-- /doc-content -->
+</main>
+
+<footer>
+  <p>© 2025 Yacouba Pfälzner · Polly App · <a href="mailto:developeryp1@gmail.com">developeryp1@gmail.com</a></p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
+    document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(observeSections, 80);
+  }
+
+  function observeSections() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 65);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.legal-section').forEach(el => observer.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setLang('de');
+    observeSections();
+  });
+</script>
+</body>
+</html>
