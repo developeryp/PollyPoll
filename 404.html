@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votunity – Lass die Community entscheiden</title>
+  <meta name="description" content="Stimm ab, teile Fragen und lass die Community entscheiden." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="🗳️ Votunity – Lass die Community entscheiden" />
+  <meta property="og:description" content="Stimm ab und teile deine Meinung. Jetzt die App laden." />
+  <meta property="og:url" content="https://developeryp.github.io/PollyPoll" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent: #FF3D71;
+      --accent2: #FF6B35;
+      --bg: #0A0A0F;
+      --surface: #14141C;
+      --border: rgba(255,255,255,0.07);
+      --text: #F0F0F5;
+      --muted: rgba(240,240,245,0.45);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(255,61,113,0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(255,107,53,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 52px 44px 48px;
+      max-width: 420px;
+      width: calc(100% - 32px);
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+      animation: cardIn 0.6s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .icon-wrap {
+      width: 88px; height: 88px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 40px rgba(255,61,113,0.35);
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%,100% { box-shadow: 0 12px 40px rgba(255,61,113,0.35); }
+      50%      { box-shadow: 0 12px 60px rgba(255,61,113,0.55); }
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px; font-weight: 800;
+      letter-spacing: -0.5px; line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--text) 0%, rgba(240,240,245,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.55; margin-bottom: 36px;
+    }
+    #post-preview {
+      display: none;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px; margin-bottom: 28px;
+      text-align: left;
+      animation: fadeIn 0.4s ease both;
+    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    #post-preview .label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    #post-preview .question {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--text); line-height: 1.4;
+    }
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 17px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500;
+      border: none; border-radius: 14px; cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(255,61,113,0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 12px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,61,113,0.45); }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-secondary {
+      display: block; width: 100%; padding: 15px 24px;
+      background: transparent; color: var(--muted);
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      border: 1px solid var(--border); border-radius: 14px;
+      cursor: pointer; text-decoration: none;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
+    footer {
+      margin-top: 28px; font-size: 12px;
+      color: rgba(240,240,245,0.2); text-align: center;
+    }
+    footer a { color: inherit; text-decoration: underline; }
+    #status { font-size: 13px; color: var(--muted); margin-bottom: 16px; min-height: 20px; }
+    .dot {
+      display: inline-block; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%; margin-right: 6px;
+      animation: blink 1s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon-wrap">🗳️</div>
+  <h1 id="headline">Lass die Community entscheiden</h1>
+  <p class="subtitle" id="desc">Öffne die Votunity App um abzustimmen,<br>zu kommentieren und deine Meinung zu teilen.</p>
+
+  <div id="post-preview">
+    <div class="label">📣 Geteilte Abstimmung</div>
+    <div class="question" id="post-title">Wird geladen…</div>
+  </div>
+
+  <p id="status"></p>
+
+  <a id="btn-app" class="btn-primary" href="#">
+    <span>📱</span> In App öffnen
+  </a>
+  <a id="btn-store" class="btn-secondary"
+     href="https://apps.apple.com/app/idDEINE_APP_ID" target="_blank">
+    Im App Store laden
+  </a>
+</div>
+
+<footer>
+  <a href="https://developeryp.github.io/PollyPoll/Nutzungsbedingungen.html">Nutzungsbedingungen</a> ·
+  <a href="https://developeryp.github.io/PollyPoll/Datenschutzerklaerung.html">Datenschutz</a>
+</footer>
+
+<script>
+  // Funktioniert für:
+  //   developeryp.github.io/PollyPoll/post/ID
+  //   pollypoll.app/post/ID
+  const PARTS   = window.location.pathname.split('/').filter(Boolean);
+  const postIdx = PARTS.indexOf('post');
+  const POST_ID = (postIdx !== -1 && PARTS[postIdx + 1]) ? PARTS[postIdx + 1] : null;
+
+  const APP_SCHEME = POST_ID ? `pollypoll://post/${POST_ID}` : 'pollypoll://';
+  const APP_STORE  = 'https://apps.apple.com/app/idDEINE_APP_ID';
+
+  const btnApp    = document.getElementById('btn-app');
+  const btnStore  = document.getElementById('btn-store');
+  const status    = document.getElementById('status');
+  const preview   = document.getElementById('post-preview');
+  const postTitle = document.getElementById('post-title');
+
+  btnApp.href   = APP_SCHEME;
+  btnStore.href = APP_STORE;
+
+  if (POST_ID) {
+    preview.style.display = 'block';
+    fetchPostTitle(POST_ID);
+
+    // Auto-Redirect nach kurzer Verzögerung
+    status.innerHTML = '<span class="dot"></span>Öffne Votunity…';
+    setTimeout(tryOpenApp, 800);
+  }
+
+  function tryOpenApp() {
+    const start = Date.now();
+    window.location.href = APP_SCHEME;
+
+    // Falls App nicht installiert → nach 2.5s zum App Store
+    setTimeout(() => {
+      if (Date.now() - start < 3500) {
+        status.innerHTML = '⬇️ App nicht installiert – weiter zum App Store';
+        setTimeout(() => { window.location.href = APP_STORE; }, 1200);
+      }
+    }, 2500);
+  }
+
+  btnApp.addEventListener('click', (e) => { e.preventDefault(); tryOpenApp(); });
+
+  async function fetchPostTitle(id) {
+    try {
+      const res = await fetch(
+        `https://fetxdxsyrknjnwdcyodg.supabase.co/rest/v1/posts?id=eq.${id}&select=question`,
+        { headers: {
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZldHhkeHN5cmtuam53ZGN5b2RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyNzczNjcsImV4cCI6MjA4ODg1MzM2N30.q9f51PAMi2yd0QT2R8QrIrmzqj8Js9fa4l4B-mNoF2g',
+            'Accept': 'application/json'
+          }
+        }
+      );
+      const data = await res.json();
+      if (data?.[0]?.question) {
+        postTitle.textContent = data[0].question;
+        document.getElementById('headline').textContent = data[0].question;
+        document.getElementById('desc').textContent = 'Stimm jetzt in der Votunity App ab.';
+        document.title = `🗳️ ${data[0].question} – Votunity`;
+      }
+    } catch (_) {
+      postTitle.textContent = 'Abstimmung öffnen';
+    }
+  }
+</script>
+</body>
+</html>
