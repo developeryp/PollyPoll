@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Votunity – Lass die Community entscheiden</title>
+  <title>PollyPoll – Lass die Community entscheiden</title>
   <meta name="description" content="Stimm ab, teile Fragen und lass die Community entscheiden." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="🗳️ Votunity – Lass die Community entscheiden" />
+  <meta property="og:title" content="🗳️ PollyPoll – Lass die Community entscheiden" />
   <meta property="og:description" content="Stimm ab und teile deine Meinung. Jetzt die App laden." />
   <meta property="og:url" content="https://developeryp.github.io/PollyPoll" />
 
@@ -151,7 +151,7 @@
 <div class="card">
   <div class="icon-wrap">🗳️</div>
   <h1 id="headline">Lass die Community entscheiden</h1>
-  <p class="subtitle" id="desc">Öffne die Votunity App um abzustimmen,<br>zu kommentieren und deine Meinung zu teilen.</p>
+  <p class="subtitle" id="desc">Öffne die PollyPoll App um abzustimmen,<br>zu kommentieren und deine Meinung zu teilen.</p>
 
   <div id="post-preview">
     <div class="label">📣 Geteilte Abstimmung</div>
@@ -164,7 +164,7 @@
     <span>📱</span> In App öffnen
   </a>
   <a id="btn-store" class="btn-secondary"
-     href="https://apps.apple.com/app/idDEINE_APP_ID" target="_blank">
+     href="https://apps.apple.com/de/app/id6758906348" target="_blank">
     Im App Store laden
   </a>
 </div>
@@ -199,7 +199,7 @@
     fetchPostTitle(POST_ID);
 
     // Auto-Redirect nach kurzer Verzögerung
-    status.innerHTML = '<span class="dot"></span>Öffne Votunity…';
+    status.innerHTML = '<span class="dot"></span>Öffne PollyPoll…';
     setTimeout(tryOpenApp, 800);
   }
 
@@ -232,8 +232,8 @@
       if (data?.[0]?.question) {
         postTitle.textContent = data[0].question;
         document.getElementById('headline').textContent = data[0].question;
-        document.getElementById('desc').textContent = 'Stimm jetzt in der Votunity App ab.';
-        document.title = `🗳️ ${data[0].question} – Votunity`;
+        document.getElementById('desc').textContent = 'Stimm jetzt in der PollyPoll App ab.';
+        document.title = `🗳️ ${data[0].question} – PollyPoll`;
       }
     } catch (_) {
       postTitle.textContent = 'Abstimmung öffnen';
