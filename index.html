@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Votunity – Lass die Community entscheiden</title>
-  <meta name="description" content="Stimm ab, teile Fragen und lass die Community entscheiden. Lade die Votunity App jetzt." />
+  <title>PollyPoll – Lass die Community entscheiden</title>
+  <meta name="description" content="Stimm ab, teile Fragen und lass die Community entscheiden. Lade die PollyPoll App jetzt." />
 
   <!-- Open Graph / Share Previews -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="🗳️ Votunity – Lass die Community entscheiden" />
+  <meta property="og:title" content="🗳️ PollyPoll – Lass die Community entscheiden" />
   <meta property="og:description" content="Stimm ab und teile deine Meinung. Jetzt die App laden." />
   <meta property="og:image" content="https://developeryp.github.io/PollyPoll/og-image.png" />
   <meta property="og:url" content="https://pollypoll.app" />
@@ -218,7 +218,7 @@
   <div class="icon-wrap">🗳️</div>
 
   <h1 id="headline">Lass die Community entscheiden</h1>
-  <p class="subtitle" id="desc">Öffne die Votunity App um abzustimmen,<br>zu kommentieren und deine Meinung zu teilen.</p>
+  <p class="subtitle" id="desc">Öffne die PollyPoll App um abzustimmen,<br>zu kommentieren und deine Meinung zu teilen.</p>
 
   <!-- Wird nur angezeigt wenn Post-ID in der URL steckt -->
   <div id="post-preview">
@@ -281,7 +281,7 @@
 
   // ── Auto-Redirect beim Laden ──────────────────────────────
   if (POST_ID) {
-    status.innerHTML = '<span class="dot"></span>Öffne Votunity…';
+    status.innerHTML = '<span class="dot"></span>Öffne PollyPoll…';
     setTimeout(() => {
       tryOpenApp();
     }, 600);
@@ -326,9 +326,9 @@
       const data = await res.json();
       if (data?.[0]?.question) {
         postTitle.textContent = data[0].question;
-        document.title = `🗳️ ${data[0].question} – Votunity`;
+        document.title = `🗳️ ${data[0].question} – PollyPoll`;
         document.getElementById('headline').textContent = data[0].question;
-        document.getElementById('desc').textContent = 'Stimm jetzt in der Votunity App ab.';
+        document.getElementById('desc').textContent = 'Stimm jetzt in der PollyPoll App ab.';
       }
     } catch (_) {
       postTitle.textContent = 'Abstimmung öffnen';
